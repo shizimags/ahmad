@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Player</title>
+</head>
+<body>
+    <h1>Audio Player</h1>
+    
+    <div class="audio-container">
+        <h2>Nokia Ringtone</h2>
+        
+        <!-- Standard HTML5 audio element with Nokia.mp3 source -->
+        <audio id="audioPlayer" controls autoplay>
+            <source src="{{ url_for('static', filename='files/Nokia.mp3') }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audioPlayer = document.getElementById('audioPlayer');
+            // Auto-play the audio when page loads
+            audioPlayer.play().catch(e => {
+                console.log("Auto-play prevented by browser. Please click play button to hear audio.");
+            });
+        });
+    </script>
+
+    <a href="/">Home</a>
+</body>
+</html>
